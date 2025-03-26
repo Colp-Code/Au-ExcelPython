@@ -114,7 +114,7 @@ Cual es tu opcion: """))
         if confirmar not in range(1,3):
             print("Opcion no valida")
         elif confirmar == 1:
-            hoja.append([fecha, descripcion, responsable, peso, valor, tipoDeSalida,])
+            hoja.append([fecha, indexDescripcion, indexNombre, peso, valor, indexTipoSalida,])
             print("Datos listos")
         else:
             print("Datos no guardados")
