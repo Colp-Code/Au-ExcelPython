@@ -16,12 +16,14 @@ hoja["B1"] = "Descripcion"
 hoja["C1"] = "Responsable"
 hoja["D1"] = "Peso"
 hoja["E1"] = "Valor"
-hoja["F1"] = "Fuente"
+hoja["F1"] = "Tipo de salida"
 
 current_date = dt.date.today()
 format_date = current_date.strftime("%d-%m-%y")
-print(f'La fecha es {format_date}')
 
+infoDescripcion = ["Aguacate hass","Aguacate papelito","Bold","Banano","Durazno","Limion Comun","Limon mandarino","Limon tahiti","Mandarina","Mango tomy","Maracuya","Naranja tangelo","Naranja valencia","Panela","Platano","Platano maduro","Guanabana","Almuerzo-Desayuno","Arriendo casa","Arriedo local","Arriendo parqueadero","BCS carro","Chevyplan","Entrada abastos","Gasolina","Gasto personal","Insumo","Lavado","Mario","Onces","Prestamo","Parqueadero carro","Parqueadero moto","Self security","Servicio de energia","Servicio de agua","Venta caja","Venta nequi","Venta daviplata"]
+infoNombres = ["Andres","Armando","Camilo P","Chalo","Dairo","Emilio","Hugo","Jairo","Jeisson","Jimmy","Jose Angel","Julian","Mario","Mayerly","Nacho","Robin","Sara","Sra Luz","Venta","Yudi"]
+tipoSalida = ["Abono","Adelanto de sueldo","Arriendo","Caja menor","Deuda","Flete","Gasto alimentacion","Gasto carro","Gasto moto","Insumo","Inversion","Servicion publicos","Sueldo","Venta"]
 try:
     respuesta = int(input(f"""¿Quieres la fecha outomatica o la quieres poner?
                           
@@ -32,19 +34,76 @@ Cual es tu opcion: """))
         fecha = str(input("Fecha del registro: "))
     else:
         fecha = format_date
-
-    descripcion = str(input("Descripcion del registro: "))
-    responsable = str(input("Responsable de este registro: "))
-    peso = float(input("Peso del producto(Si es que tiene): "))
-    valor = float(input("Valor del producto: "))
-    fuente = str(input(f'¿De donde salio la plata?: '))
+    
+    try:
+        print(f"""
+              ===================
+              Que tipo de descripcion desea?
+              ===================
+              """)
+        for i,x in enumerate(infoDescripcion):
+            print(i + 1 ,x)
+        descripcion = int(input("Que opcion escojes: "))
+        indexDescripcion = infoDescripcion[descripcion - 1]
+        print(indexDescripcion)
+    except:
+        print("Algo salio mal")
+        sys.exit(1)
+    try:
+        print(f"""
+              ===================
+              Quien fue el responsable?
+              ===================
+              """)
+        for i, x in enumerate(infoNombres):
+            print(i + 1 ,x)
+        responsable = int(input("Responsable de este registro: "))
+        indexNombre = infoNombres[responsable - 1]
+        print(indexNombre)
+    except:
+        print("Algo salio mal")
+        sys.exit(1)
+    try:
+        print("""
+              ===================
+              Peso
+              ===================
+              """)
+        peso = float(input("Peso del producto(Si no tiene dale al enter): "))
+    except:
+        peso = 0
+        print(f'El peso se escribira como 0')
+    try:
+        print("""
+              ===================
+              Valor
+              ===================
+              """)
+        valor = float(input("Valor del producto(Si no tiene dale al enter): "))
+    except:
+        valor = 0
+        print(f'El valor sera escrito como 0')
+    try:
+        print(f"""
+              ===================
+              ¿Que tipo de salida es?
+              ===================
+              """)
+        for i, x in enumerate(tipoSalida):
+            print(i + 1 ,x)
+        tipoDeSalida = int(input(f'¿El tipo de salida es: '))
+        indexTipoSalida = tipoSalida[tipoDeSalida - 1]
+        print(indexTipoSalida)
+    except:
+        print("Algo salio mal")
+        sys.exit(1)
     print(f"""Los tados agregados fueron
     La fecha es: {fecha}
-    La descripcion es: {descripcion}
-    El responsable es: {responsable}S
+    La descripcion es: {indexDescripcion}
+    El responsable es: {indexNombre}
     El peso es: {peso}
     El valor es: {valor}
-    La fuente es: {fuente}
+    La fuente es: {indexTipoSalida}
     """)
     try:
         confirmar = int(input("""
@@ -55,7 +114,7 @@ Cual es tu opcion: """))
         if confirmar not in range(1,3):
             print("Opcion no valida")
         elif confirmar == 1:
-            hoja.append([fecha, descripcion, responsable, peso, valor, fuente,])
+            hoja.append([fecha, descripcion, responsable, peso, valor, tipoDeSalida,])
             print("Datos listos")
         else:
             print("Datos no guardados")

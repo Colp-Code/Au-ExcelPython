@@ -1,16 +1,11 @@
-import openpyxl
+infoDescripcion = ["Aguacate hass","Aguacate papelito","Bold","Banano","Durazno","Limion Comun","Limon mandarino","Limon tahiti","Mandarina","Mango tomy","Maracuya","Naranja tangelo","Naranja valencia","Panela","Platano","Platano maduro","Guanabana","Almuerzo-Desayuno","Arriendo casa","Arriedo local","Arriendo parqueadero","BCS carro","Chevyplan","Entrada abastos","Gasolina","Gasto personal","Insumo","Lavado","Mario","Onces","Prestamo","Parqueadero carro","Parqueadero moto","Self security","Servicio de energia","Servicio de agua","Venta caja","Venta nequi","Venta daviplata"]
 
-wb = openpyxl.load_workbook("empleados.xlsx")
-print("Ya esta cargada")
-hoja = wb.active
+for i,x in enumerate(infoDescripcion):
+    print(x,i + 1)
 
-hoja["D1"] = "Salario"
 
-salarios = [8000,9000,10000]
+x = int(input("Pon algo: "))
 
-for i, salario in enumerate(salarios, start=2):
-    hoja[f"D{i}"] = salario
-    print(i)
+l = infoDescripcion[x]
 
-wb.save("empleados.xlsx")
-print("Ya se guardo")
+print(l)
