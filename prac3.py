@@ -18,7 +18,7 @@ hoja["E1"] = "Valor"
 hoja["F1"] = "Tipo de salida"
 
 current_date = dt.date.today()
-format_date = current_date.strftime("%d-%m-%y")
+format_date = current_date.strftime("%d/%m/%y")
 ejemplo_data = current_date.strftime("%d%m%y")
 
 infoDescripcion = ["Aguacate hass","Aguacate papelito","Bold","Banano","Durazno","Limion Comun","Limon mandarino","Limon tahiti","Mandarina","Mango tomy","Maracuya","Naranja tangelo","Naranja valencia","Panela","Platano","Platano maduro","Guanabana","Almuerzo-Desayuno","Arriendo casa","Arriedo local","Arriendo parqueadero","BCS carro","Chevyplan","Entrada abastos","Gasolina","Gasto personal","Insumo","Lavado","Mario","Onces","Prestamo","Parqueadero carro","Parqueadero moto","Self security","Servicio de energia","Servicio de agua","Venta caja","Venta nequi","Venta daviplata"]
@@ -42,6 +42,7 @@ Fecha del registro: """))
             break
         else:
             fecha = format_date
+            print(fecha)
             break
     except:
         print("Tipo de dato incorrecto intentalo de nuevo :)")
@@ -56,10 +57,11 @@ while True:
                 """)
         for i,x in enumerate(infoDescripcion):
             print(i + 1 ,x)
-            descripcion = int(input("Que opcion escojes: "))
-            indexDescripcion = infoDescripcion[descripcion - 1]
-            print(indexDescripcion)
-        break
+
+        descripcion = int(input("Que opcion escojes: "))
+        indexDescripcion = infoDescripcion[descripcion - 1]
+        print(indexDescripcion)
+        break               
     except:
         print("Algo salio mal")
         sys.exit(1)
@@ -73,9 +75,10 @@ while True:
                 """)
         for i, x in enumerate(infoNombres):
             print(i + 1 ,x)
-            responsable = int(input("Responsable de este registro: "))
-            indexNombre = infoNombres[responsable - 1]
-            print(indexNombre)
+
+        responsable = int(input("Responsable de este registro: "))
+        indexNombre = infoNombres[responsable - 1]
+        print(indexNombre)
         break
     except:
             print("Algo salio mal")
@@ -115,9 +118,10 @@ while True:
                 """)
         for i, x in enumerate(tipoSalida):
             print(i + 1 ,x)
-            tipoDeSalida = int(input(f'¿El tipo de salida es: '))
-            indexTipoSalida = tipoSalida[tipoDeSalida - 1]
-            print(indexTipoSalida)
+        
+        tipoDeSalida = int(input(f'¿El tipo de salida es: '))
+        indexTipoSalida = tipoSalida[tipoDeSalida - 1]
+        print(indexTipoSalida)
         break
     except:
         print("Algo salio mal")
