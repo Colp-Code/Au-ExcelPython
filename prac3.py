@@ -1,6 +1,14 @@
+import firebase_admin
+from firebase_admin import firestore
+from firebase_admin import credentials
 import openpyxl
 import datetime as dt
 import sys
+
+cred = credentials.Certificate("serviceAccountKey.json")
+firebase_admin.initialize_app(cred)
+
+db = firestore.client()
 
 try:
     wb = openpyxl.load_workbook("empleados.xlsx")

@@ -1,21 +1,15 @@
 import openpyxl
+import firebase_admin
+from firebase_admin import firestore
+from firebase_admin import credentials
 
-wb = openpyxl.Workbook()
-hoja = wb.active 
-hoja.title = "Datos"
+cred = credentials.Certificate("serviceAccountKey.json")
+firebase_admin.initialize_app(cred)
 
+db = firestore.client()
 
-personas = [
-    ('Juan', 28, 'falso'),
-    ('Sergio', 20, 'Patron'),
-    ('Ichi', 18, 'Matematico'),
-]
-t = hoja.append(('Nombre', 'Edad', 'Puesto'))
+docs = db.collection("usuarios").get()
 
-for empleados in personas:
-    hoja.append(empleados)
-
-total_filas = hoja.max_row
-print(total_filas)
-wb.save("empleados.xlsx")
-print("listo")
+for doc in docs:
+    print(f'ID del docuemnto es {doc.id}')
+    print(f'Lo que tiene esto es {doc.to_dict()}')
