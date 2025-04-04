@@ -9,7 +9,7 @@ baseDeDatos = firestore.client()
 datos = baseDeDatos.collection("Equipo").document("losTilines")
 
 doc = baseDeDatos.collection("Equipo").get()
-""" jugador = None
+jugador = None
 for dato in doc:
     datoJson = dato.to_dict()
     for jugadores in datoJson.get('equipos', []):
@@ -20,7 +20,7 @@ for dato in doc:
 
 
 datos.update({'equipos':firestore.ArrayRemove([jugador])})
-datos.update({'equipos':firestore.ArrayUnion([{'nombre': 'pedro','posicion':'delantero'}])}) """
+datos.update({'equipos':firestore.ArrayUnion([{'nombre': 'pedro','posicion':'delantero'}])})
 
 conteo = {}
 
