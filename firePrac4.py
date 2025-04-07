@@ -16,14 +16,14 @@ for administrar in datos:
     for jugadores in admindDatos.get('equipos',[]):
         listaJugadores = jugadores
 
-""" db.set({"nombre": "Tilines",
+db.set({"nombre": "Tilines",
   "equipos": [
     {"nombre": "Cristian", "posicion": "defensa"},
     {"nombre": "Sergio", "posicion": "portero"},
     {"nombre": "Yurlaydis", "posicion": "titular"},
     {"nombre": "Pedro", "posicion": "defensa"},
     {"nombre": "Luis", "posicion": "delantero"}
-]}) """
+]})
 
 conteo = {}
 
@@ -36,4 +36,7 @@ for diccio in datos:
             conteo[posicion] = []
         conteo[posicion].append(jugador)
 
-print(conteo)
+print(f'Defensas: {conteo.get("defensa", [])}')
+print(f'Portero: {conteo["portero"]}')
+print(f'Titular: {conteo["titular"]}')
+print(f'Delanteros: {conteo["delantero"]}')
