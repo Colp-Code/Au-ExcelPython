@@ -29,7 +29,7 @@ current_date = dt.date.today()
 format_date = current_date.strftime("%d/%m/%y")
 ejemplo_data = current_date.strftime("%d%m%y")
 
-infoDescripcion = ["Aguacate hass","Aguacate papelito","Bold","Banano","Durazno","Limion Comun","Limon mandarino","Limon tahiti","Mandarina","Mango tomy","Maracuya","Naranja tangelo","Naranja valencia","Panela","Platano","Platano maduro","Guanabana","Almuerzo-Desayuno","Arriendo casa","Arriedo local","Arriendo parqueadero","BCS carro","Chevyplan","Entrada abastos","Gasolina","Gasto personal","Insumo","Lavado","Mario","Onces","Prestamo","Parqueadero carro","Parqueadero moto","Self security","Servicio de energia","Servicio de agua","Venta caja","Venta nequi","Venta daviplata"]
+infoDescripcion = ["Aguacate hass","Aguacate papelito","Bold","Banano","Durazno","Limion Comun","Limon mandarino","Limon tahiti","Mandarina","Mango tomy","Maracuya","Naranja tangelo","Naranja valencia","Platano","Platano maduro","Guanabana","Panela","Almuerzo-Desayuno","Arriendo casa","Arriedo local","Arriendo parqueadero","BCS carro","Chevyplan","Entrada abastos","Gasolina","Gasto personal","Insumo","Lavado","Mario","Onces","Prestamo","Parqueadero carro","Parqueadero moto","Self security","Servicio de energia","Servicio de agua","Venta caja","Venta nequi","Venta daviplata"]
 infoNombres = ["Andres","Armando","Camilo P","Chalo","Dairo","Emilio","Hugo","Jairo","Jeisson","Jimmy","Jose Angel","Julian","Mario","Mayerly","Nacho","Robin","Sara","Sra Luz","Venta","Yudi"]
 tipoSalida = ["Abono","Adelanto de sueldo","Arriendo","Caja menor","Deuda","Flete","Gasto alimentacion","Gasto carro","Gasto moto","Insumo","Inversion","Servicion publicos","Sueldo","Venta"]
 while True:
@@ -69,10 +69,10 @@ while True:
         descripcion = int(input("Que opcion escojes: "))
         indexDescripcion = infoDescripcion[descripcion - 1]
         print(indexDescripcion)
-        break               
+        break
     except:
-        print("Algo salio mal")
-        sys.exit(1)
+        print("Algo salio mal 1")
+        sys.exit(1)  
 
 while True:
     try:
@@ -89,21 +89,25 @@ while True:
         print(indexNombre)
         break
     except:
-            print("Algo salio mal")
-            sys.exit(1)
-while True:
-    try:
-        print("""
-                ===================
-                Peso
-                ===================
-                """)
-        peso = float(input("Peso del producto(Si no tiene dale al enter): "))
+        print("Algo salio mal 2")
+        sys.exit(1)
         break
-    except:
-        peso = 0
-        print(f'El peso se escribira como 0')
-        break
+
+if descripcion - 1 < 17:
+    while True:
+        try:
+            print("""
+                    ===================
+                    Peso
+                    ===================
+                    """)
+            peso = float(input("Peso del producto(Si no tiene dale al enter): "))
+            break
+        except:
+            print(f'Error de tipo de dato')
+            
+else:
+    peso = 0
 while True:
     try:
         print("""
